@@ -23,6 +23,7 @@
 * i know how to write functions! in fp, there's an infinite ladder of category theoretic type species !!
 * to learn fp, you need to get comfortable thinking about types/categories of things
     * e.g. this function is a monoid, e.g. it has associative properties.
+* Oh, it's not well stated, but not only operator overloading but really inventing random operators (as far as I can see). What's &= or =<< ?
 
 # Programming
 
@@ -72,3 +73,7 @@ Downloading latest package list ...........
 $ cabal install CmdArgs
 .....
 $
+
+* https://spin.atomicobject.com/2012/12/13/using-haskells-cmdargs-package/
+* https://github.com/ndmitchell/cmdargs#readme
+* http://hackage.haskell.org/package/cmdargs-0.10.17/docs/System-Console-CmdArgs-Implicit.html

@@ -1,19 +1,29 @@
 
 {-# LANGUAGE DeriveDataTypeable #-}
 {-# OPTIONS_GHC -fno-cse #-}
+
+-- ?!?! needs no-cse optimization so args arent processed more than once ?!?!?
+
 module Sample where
 import System.Console.CmdArgs
 
 
-data Opts = Opts {
-    hello :: String
+-- beginner: diff between data record type name and constructor
+
+data Opts = OptsMaker {
+  hello :: String,
+  times :: Integer
 } deriving (Show, Data, Typeable)
 
-sample = Opts {
-    hello = def 
+-- from hackage:  &=  ... add an annotation to this option
+opts = OptsMaker {
+  hello = def                     -- if not given, default val (def "")
     &= help "World argument" 
-    &= opt "world"
+    &= opt "world",               -- if just option, this default val
+  times = 4
+    &= help "num to repeat"
 }
-    &= summary "Sample v1"
+  &= summary "Sample v1"
 
-main = print =<< cmdArgs sample
+main = 
+  print =<< cmdArgs opts
